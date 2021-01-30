@@ -1,0 +1,15 @@
+---
+- hosts: aws
+  remote_user: ec2-user
+  become: yes
+  tasks:
+  - name: update all
+    yum:
+      name: "*"
+      state: latest
+  - name: Reboot
+    reboot:
+  - name: Install httpd
+    yum:
+      name: httpd
+      state: latest
